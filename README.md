@@ -12,7 +12,7 @@ In order to see what people have to say as a maker I want to see all peeps in ch
 
 ###Notes:
 
-Makers sign up to chitter with their email, password, name and a user name (i.e. ecomba@makersacademy.com, s3cr3t, Enrique Comba Riepenhausen, ecomba)
+Makers sign up to chitter with their email, password, name and a user name (i.e. aloha@makersacademy.com, s3cr3t, Albert Vallverdu, byverdu)
 The username and email are unique
 Peeps (posts to chitter) have the name of the maker and their user handle
 Use bcrypt to secure the passwords
@@ -29,4 +29,4 @@ In order to start a conversation as a maker I want to reply to a peep from anoth
 Work on the css to make it look good (we all like beautiful things).
 
 
-Technologies used
+Technologies used: Ruby, RSpec, Capybara, Sass, JQuery, CSS and HTML
