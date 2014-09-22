@@ -13,11 +13,14 @@ class Chitter < Sinatra::Base
 
 	DataMapper.finalize
 
-	DataMapper.auto_migrate!
+	DataMapper.auto_upgrade!
 
 	enable :sessions
 	set    :session_secret, 'my secret'
 
+	use Rack::Flash
+	use Rack::MethodOverride
+	
 	get '/' do
 		erb :index
 	end
@@ -28,14 +31,15 @@ class Chitter < Sinatra::Base
 		erb :"user/new"
 	end
 
-	
+
 	post '/user' do
 
-		@user = User.create(email:     						 params[:email],
-								  		 password:  						 params[:password],
-								  		 password_confirmation:  params[:password_confirmation],
-											 name:      						 params[:name],
-								       user_name: 						 params[:user_name]
+		@user = User.create(
+					 email:     						 params[:email],
+		  		 password:  						 params[:password],
+		  		 password_confirmation:  params[:password_confirmation],
+					 name:      						 params[:name],
+		       user_name: 						 params[:user_name]
 											)
 
 		if @user.save
@@ -45,15 +49,13 @@ class Chitter < Sinatra::Base
 			redirect to '/'
 
 		else
-			flash[:notice] = "Sorry, your passwords don't match"
+			flash.now[:errors] = @user.errors.full_messages
 			erb :"user/new"
 		end
 	end
 
 
 
-	use Rack::Flash
-	use Rack::MethodOverride
 
 	helpers do
 

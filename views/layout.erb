@@ -13,8 +13,18 @@
 	<% end %>
 
 
-	<% if flash[:notice] %>
-		<div class="notice"> <%= flash[:notice] %> </div>
+	<% if flash[:errors] && !flash[:errors].empty? %>
+
+		<p>Sorry, there were the following problems with the form</p>
+
+		<ul class="errors">
+			
+			<% flash[:errors].each do |error| %>	
+
+			<li> <%= error %> </li>
+			<% end %>
+
+		</ul>
 	<% end %>
 
 	<%= yield %>
