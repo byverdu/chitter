@@ -7,14 +7,19 @@ describe User do
 			expect(User.count).to eq 0
 
 			User.create(email:       "alby@domain.io",
-									user_name:   "@byverdu")
+									pswd_digest: "s3cr3t",
+									name:        "Albert Byverdu",
+									user_name:   "byverdu"
+								)
 
 			expect(User.count).to eq 1
 
 			chit = User.first
 
-			expect(chit.email).to     eq("alby@domain.io")
-			expect(chit.user_name).to eq("@byverdu")
+			expect(chit.email).to        eq("alby@domain.io")
+			expect(chit.pswd_digest).to  eq("s3cr3t")
+			expect(chit.name).to         eq("Albert Byverdu")
+			expect(chit.user_name).to    eq("byverdu")
 
 			chit.destroy
 
