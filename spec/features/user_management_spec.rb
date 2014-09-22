@@ -19,7 +19,7 @@ feature	"User signs up" do
 
 		expect{ sign_up }.to change(User, :count).by(1)
 		expect{ sign_up }.to change(User, :count).by(0)
-		expect(page).to have_content("This email is already taken")
+		expect(page).to have_content("Email is already take")
 	end
 
 

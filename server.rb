@@ -13,7 +13,7 @@ class Chitter < Sinatra::Base
 
 	DataMapper.finalize
 
-	DataMapper.auto_upgrade!
+	DataMapper.auto_migrate!
 
 	enable :sessions
 	set    :session_secret, 'my secret'
