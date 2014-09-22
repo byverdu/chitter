@@ -15,11 +15,11 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-ENV["RACK_ENV"] = "test"
+ENV["RACK_ENV"] = "development"
 
+require "./server"
 require "database_cleaner"
 require "capybara/rspec"
-require "./server"
 
 Capybara.app = Chitter.new
 
