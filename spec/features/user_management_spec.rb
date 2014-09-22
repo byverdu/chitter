@@ -1,22 +1,39 @@
 feature	"User signs up" do
 
 	scenario "when being log out" do
-
 		expect{ sign_up }.to change(User, :count).by(1)
 
 		expect(page).to have_content('Welcome to Chitter alby@domain.io')
 		expect(User.first.email).to eq('alby@domain.io')
 	end
 
-	scenario "with a password that doesn't match" do
-
-		expect{ sign_up('alby@domain','pass','wrong') }.to change(User, :count).by(0)
-	end
-
 	scenario "with a password that doesn´t match" do
 
+		expect{ sign_up('alby@domain','pass','wrong') }.to change(User, :count).by(0)
 
+		expect(current_path).to eq('/user')
+		expect(page).to have_content('Sorry, your passwords don\'t match')
 	end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	def sign_up(email                  = 'alby@domain.io',
 							password               = 's3cr3t',

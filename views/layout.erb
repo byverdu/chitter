@@ -8,8 +8,13 @@
 	
 	<% if current_user %>
 		
-		<h1> Welcome to Chitter <%= current_user.email %> </h1>
+		<h1> Welcome to Chitter <%=current_user.email%> </h1>
 
+	<% end %>
+
+
+	<% if flash[:notice] %>
+		<div class="notice"> <%= flash[:notice] %> </div>
 	<% end %>
 
 	<%= yield %>

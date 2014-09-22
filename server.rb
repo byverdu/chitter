@@ -13,32 +13,43 @@ class Chitter < Sinatra::Base
 
 	DataMapper.finalize
 
-	DataMapper.auto_upgrade!
+	DataMapper.auto_migrate!
 
 	enable :sessions
-	set :session_secret, 'my secret'
+	set    :session_secret, 'my secret'
 
 	get '/' do
 		erb :index
 	end
 
+	get '/user/new' do
+
+		@user = User.new
+		erb :"user/new"
+	end
+
+	
 	post '/user' do
 
-		user = User.create(email:     						 params[:email],
+		@user = User.create(email:     						 params[:email],
 								  		 password:  						 params[:password],
 								  		 password_confirmation:  params[:password_confirmation],
 											 name:      						 params[:name],
 								       user_name: 						 params[:user_name]
 											)
 
-		session[:user_id] = user.id
+		if @user.save
+			
+			session[:user_id] = @user.id
 
-		redirect to '/'
+			redirect to '/'
+
+		else
+			flash[:notice] = "Sorry, your passwords don't match"
+			erb :"user/new"
+		end
 	end
 
-	get '/user/new' do
-		erb :"user/new"
-	end
 
 
 	use Rack::Flash

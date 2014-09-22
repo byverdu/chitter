@@ -1,10 +1,8 @@
-<p>Hello user Sign up</p>
-
 <section class="sign_up">
 	
 	<form action="/user" method="post">
 		
-		<input name="email"    							type="email"    						 placeholder="Example@domain.com">
+		<input name="email"    							type="email"    						 placeholder="Example@domain.com" value="<%= @user.email %>" >
 		<input name="password" 							type="password" 						 placeholder="Password">
 		<input name="password_confirmation" type="password_confirmation" placeholder="Password Confirmation">
 		<input name="name"     							type="text"     						 placeholder="Name">
