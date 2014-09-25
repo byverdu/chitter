@@ -10,10 +10,11 @@ class Chitter < Sinatra::Base
 	DataMapper.setup(:default, "postgres://localhost/chitter_#{env}")
 
 	require './lib/user'
+	require './lib/chitt'
 
 	DataMapper.finalize
 
-	DataMapper.auto_migrate!
+	DataMapper.auto_upgrade!
 
 	enable :sessions
 	set    :session_secret, 'my secret'
@@ -22,6 +23,7 @@ class Chitter < Sinatra::Base
 	use Rack::MethodOverride
 	
 	get '/' do
+		@chitts = Chitt.all
 		erb :index
 	end
 

@@ -1,1 +1,8 @@
-<p>testing</p>
+<ul>
+  <% @chitts.each do |chitt| %>
+    <li>
+    	<h2> <%= chitt.user %></h2>
+      <p><%= chitt.content %></p>
+    </li>
+  <% end %>
+</ul>

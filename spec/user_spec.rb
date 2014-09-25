@@ -14,14 +14,14 @@ describe User do
 
 			expect(User.count).to eq 1
 
-			chit = User.first
+			user = User.first
 
-			expect(chit.email).to        eq("alby@domain.io")
-			expect(chit.pswd_digest).to  eq("s3cr3t")
-			expect(chit.name).to         eq("Albert Byverdu")
-			expect(chit.user_name).to    eq("byverdu")
+			expect(user.email).to        eq("alby@domain.io")
+			expect(user.pswd_digest).to  eq("s3cr3t")
+			expect(user.name).to         eq("Albert Byverdu")
+			expect(user.user_name).to    eq("byverdu")
 
-			chit.destroy
+			user.destroy
 
 			expect(User.count).to eq 0
 		end
