@@ -14,7 +14,7 @@ class Chitter < Sinatra::Base
 
 	DataMapper.finalize
 
-	DataMapper.auto_upgrade!
+	DataMapper.auto_migrate!
 
 	enable :sessions
 	set    :session_secret, 'my secret'
@@ -27,14 +27,14 @@ class Chitter < Sinatra::Base
 		erb :index
 	end
 
-	get '/user/new' do
+	get '/users/new' do
 
 		@user = User.new
-		erb :"user/new"
+		erb :"users/new"
 	end
 
 
-	post '/user' do
+	post '/users' do
 
 		@user = User.create(
 					 email:     						 params[:email],
@@ -48,15 +48,47 @@ class Chitter < Sinatra::Base
 			
 			session[:user_id] = @user.id
 
-			redirect to '/'
+			redirect to('/')
 
 		else
 			flash.now[:errors] = @user.errors.full_messages
-			erb :"user/new"
+			erb :"users/new"
 		end
 	end
 
+	get '/sessions/new' do
+	  erb :"sessions/new"
+	end
 
+	post '/sessions' do
+    user_name, password = params[:user_name], params[:password]
+
+    user = User.authenicate(user_name, password)
+
+    if user
+      
+      session[:user_id] = user.id
+      redirect to('/')
+
+    else
+    	flash[:errors] = ["The user name or password is incorrect"]
+      erb :"sessions/new"	
+    end
+	end
+
+
+	# post '/chitts' do
+
+	# 	@user = User.first(id: session[:user_id])
+
+	# 	puts session[:user_id]
+
+	# 	content = params[:content]
+
+	# 	Chitt.create(user: @user.user_name, content: content)
+
+	# 	redirect to '/'
+	# end
 
 
 	helpers do

@@ -9,7 +9,7 @@ describe User do
 			User.create(email:       "alby@domain.io",
 									pswd_digest: "s3cr3t",
 									name:        "Albert Byverdu",
-									user_name:   "byverdu"
+									user_name:   "Byverdu"
 								)
 
 			expect(User.count).to eq 1
@@ -19,7 +19,7 @@ describe User do
 			expect(user.email).to        eq("alby@domain.io")
 			expect(user.pswd_digest).to  eq("s3cr3t")
 			expect(user.name).to         eq("Albert Byverdu")
-			expect(user.user_name).to    eq("byverdu")
+			expect(user.user_name).to    eq("Byverdu")
 
 			user.destroy
 

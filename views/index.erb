@@ -1,8 +1,15 @@
-<ul>
-  <% @chitts.each do |chitt| %>
-    <li>
-    	<h2> <%= chitt.user %></h2>
-      <p><%= chitt.content %></p>
-    </li>
-  <% end %>
-</ul>
+<% @chitts.each do |chitt| %>
+  <section>
+  	<h2> <%= chitt.user %></h2>
+    <p><%= chitt.content %></p>
+  </section>
+<% end %>
+
+
+<!-- <section class="add_chitt">
+	<form action="/chitts" method="post">
+		<input name="content" type="text" placeholder="Add your chitt">
+
+		<button type="submit">Chitt Mate</button>
+	</form>
+</section> -->

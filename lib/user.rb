@@ -22,4 +22,16 @@ class User
 	 	self.pswd_digest = BCrypt::Password.create(password)
 	end 
 
+	def self.authenicate(user_name, password)
+		
+		user = first(user_name: user_name)
+
+		if user && BCrypt::Password.new(user.pswd_digest) == password
+
+			user
+		else 
+			nil
+		end
+	end
+
 end

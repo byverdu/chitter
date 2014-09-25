@@ -3,15 +3,15 @@ feature	"User signs up" do
 	scenario "when being log out" do
 		expect{ sign_up }.to change(User, :count).by(1)
 
-		expect(page).to have_content('Welcome to Chitter alby@domain.io')
-		expect(User.first.email).to eq('alby@domain.io')
+		expect(page).to have_content('Welcome to Chitter Byverdu')
+		expect(User.first.user_name).to eq('Byverdu')
 	end
 
 	scenario "with a password that doesn´t match" do
 
-		expect{ sign_up('alby@domain','pass','wrong') }.to change(User, :count).by(0)
+		expect{ sign_up('alby@domain','s3cr3t','s3cr3t0','Albert Byverdu','Byverdu') }.to change(User, :count).by(0)
 
-		expect(current_path).to eq('/user')
+		expect(current_path).to eq('/users')
 		expect(page).to have_content("Password does not match the confirmation")
 	end
 
@@ -26,9 +26,9 @@ feature	"User signs up" do
 							password               = 's3cr3t',
 							password_confirmation  = 's3cr3t',
 							name                   = 'Albert Byverdu',
-							user_name              = 'byverdu')
+							user_name              = 'Byverdu')
 
-		visit '/user/new'
+		visit '/users/new'
 
 		expect(page.status_code).to eq(200)
 		
@@ -36,9 +36,50 @@ feature	"User signs up" do
 		fill_in :password, 							with: password
 		fill_in :password_confirmation, with: password_confirmation
 		fill_in :name, 									with: name
-		fill_in :user_name, 						with: email
+		fill_in :user_name, 						with: user_name
 
 		click_button "Sign Up"
+	end
+
+end
+
+feature "User signs in" do
+
+	before(:each) do
+
+		User.create(email: "alby@domain.io", password: 's3cr3t',password_confirmation: "s3cr3t",
+		            name: "Albert Byverdu", user_name: "Byverdu")
+	end
+
+	scenario "with the correct credentials" do
+    
+    visit '/'
+
+    expect(page).not_to have_content("Welcome to Chitter Byverdu")
+
+		sign_in( "Byverdu", 's3cr3t' )
+
+
+		expect(page).to have_content('Welcome to Chitter Byverdu')
+  end
+
+  scenario "with the incorrect credentials" do
+
+  	visit '/'
+  	expect(page).not_to have_content('Welcome to Chitter Byverdu')
+  		sign_in( 'Byverdu', 's3cr3t0' )
+  	expect(page).not_to have_content('Welcome to Chitter Byverdu')
+  end
+
+
+	def sign_in(user_name,password)
+		
+		visit '/sessions/new'
+
+		fill_in 'user_name', with: user_name
+		fill_in 'password',  with: password
+
+		click_button 'Sign in'
 	end
 
 end
