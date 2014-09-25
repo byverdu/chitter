@@ -22,24 +22,6 @@ feature	"User signs up" do
 		expect(page).to have_content("Email is already take")
 	end
 
-	def sign_up(email                  = 'alby@domain.io',
-							password               = 's3cr3t',
-							password_confirmation  = 's3cr3t',
-							name                   = 'Albert Byverdu',
-							user_name              = 'Byverdu')
-
-		visit '/users/new'
-
-		expect(page.status_code).to eq(200)
-		
-		fill_in :email, 								with: email
-		fill_in :password, 							with: password
-		fill_in :password_confirmation, with: password_confirmation
-		fill_in :name, 									with: name
-		fill_in :user_name, 						with: user_name
-
-		click_button "Sign Up"
-	end
 
 end
 
@@ -70,7 +52,28 @@ feature "User signs in" do
   		sign_in( 'Byverdu', 's3cr3t0' )
   	expect(page).not_to have_content('Welcome to Chitter Byverdu')
   end
+end
 
+
+feature "when the user signs out" do
+
+	before(:each) do
+
+		User.create(email: "alby@domain.io", password: 's3cr3t',password_confirmation: "s3cr3t",
+		            name: "Albert Byverdu", user_name: "Byverdu")
+	end
+
+	scenario 'while being signed in' do
+    
+    sign_in('Byverdu', 's3cr3t')
+    
+    click_button "Sign Out"
+    
+    expect(page).to have_content("Good bye!") # where does this message go?
+    expect(page).not_to have_content("Welcome to Chitter Byverdu")
+  end
+
+end
 
 	def sign_in(user_name,password)
 		
@@ -79,15 +82,30 @@ feature "User signs in" do
 		fill_in 'user_name', with: user_name
 		fill_in 'password',  with: password
 
-		click_button 'Sign in'
+		click_button 'Sign In'
 	end
 
-end
 
 
 
+	def sign_up(email                  = 'alby@domain.io',
+							password               = 's3cr3t',
+							password_confirmation  = 's3cr3t',
+							name                   = 'Albert Byverdu',
+							user_name              = 'Byverdu')
 
+		visit '/users/new'
 
+		expect(page.status_code).to eq(200)
+		
+		fill_in :email, 								with: email
+		fill_in :password, 							with: password
+		fill_in :password_confirmation, with: password_confirmation
+		fill_in :name, 									with: name
+		fill_in :user_name, 						with: user_name
+
+		click_button "Sign Up"
+	end
 
 
 
