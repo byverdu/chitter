@@ -18,6 +18,10 @@
 ENV["RACK_ENV"] = "test"
 
 require "./server"
+require "database_cleaner"
+require "capybara/rspec"
+
+Capybara.app = App.new
 
 
 RSpec.configure do |config|

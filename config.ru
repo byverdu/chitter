@@ -1,5 +1,5 @@
 require 'rubygems'
 
-require File.join(File.dirname(__FILE__),'server')
+require File.join(File.dirname(__FILE__),'./app/server')
 
-run Chiter
+run App
