@@ -20,19 +20,18 @@ feature "Signing up" do
 		expect(current_path).to eq('/user/profile')
 	end
 
+	scenario "The email must be unique" do
+
+		visit '/user/new_user'
+
+		expect{ fake_sign_up }.to change(User, :count).by(1)
+		expect{ fake_sign_up }.to change(User, :count).by(0)
+		
+		expect(page).to have_content("Email is already taken")
+	end
 
 
 
-	# xscenario "The email must be unique" do
-
-	# 	visit '/'
-
-	# 	expect{ sign_up }
-	# 	expect{ sign_up }
-
-	# 	expect(page).to have_content('This email is already taken')
-	# 	expect(current_path).to eq('/user/new_user')
-	# end
 
 	def sign_up(email, password, confirm_password, name, user_name)
 		

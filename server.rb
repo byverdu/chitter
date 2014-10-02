@@ -11,6 +11,7 @@ class App < Sinatra::Base
 	use Rack::MethodOverride
 
 	enable :sessions
+	set    :session_secret, 'my secret'
 
 	env = ENV["RACK_ENV"] || "development"
 
@@ -49,6 +50,7 @@ class App < Sinatra::Base
 
 			redirect to '/user/profile' 				
 		else
+			flash[:notice] = 'Email is already taken'
 			redirect to '/user/new_user'
 		end
 	end
