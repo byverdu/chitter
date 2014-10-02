@@ -29,4 +29,18 @@ class App < Sinatra::Base
 		erb :index
 	end
 
+	post '/new_user' do
+		@user = User.create(email: params[:email],
+                        password: params[:password],
+		                    confirm_password: params[:confirm_password],
+		                    name: params[:name],
+		                    user_name: params[:user_name]
+		                   )
+	end
+
+  get '/new_user' do
+
+  	erb :"user/new_user"
+  end
+
 end
