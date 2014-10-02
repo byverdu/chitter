@@ -16,6 +16,7 @@ class App < Sinatra::Base
 	DataMapper.setup(:default, "postgres://localhost/chiter_#{env}")
 
 	require "./app/lib/user"
+	require "./app/lib/chiter"
 
 	DataMapper.finalize
 
