@@ -22,7 +22,10 @@ class App < Sinatra::Base
 
 	DataMapper.auto_migrate! 
 
-	get '/' do 
+	get '/' do
+
+		@chiters = Chiter.all
+
 		erb :index
 	end
 
