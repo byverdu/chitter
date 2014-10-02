@@ -9,4 +9,5 @@ class User
 	property :user_name, String
 
 
+
 end

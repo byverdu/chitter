@@ -4,6 +4,7 @@ class Chiter
 
 	property :id,      Serial
 	property :content, Text
-	
+	property :at_time, Time
+
 
 end

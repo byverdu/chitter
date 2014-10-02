@@ -1,6 +1,6 @@
 feature "On the home page" do
 
-	before do 
+	before(:each) do 
 		Chiter.create(content: 'Always testing')
 	end
 

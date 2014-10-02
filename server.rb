@@ -20,7 +20,7 @@ class App < Sinatra::Base
 
 	DataMapper.finalize
 
-	DataMapper.auto_migrate! 
+	DataMapper.auto_upgrade! 
 
 	get '/' do
 
