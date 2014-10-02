@@ -12,10 +12,11 @@ feature "On the home page" do
 		Chiter.create(content: 'Always testing', at_time: time)
 	end
 
-	xscenario "The user visits the page for first time" do
+	scenario "The user visits the page for first time" do
 		visit '/'
 
 		expect(page).to have_content('Welcome to Chiter')
+		expect(page).to have_link( 'Sign Up' )
 		expect(page).to have_content('Always testing')
 		expect(page).to have_content(time)
 	end
