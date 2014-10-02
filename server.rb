@@ -50,7 +50,7 @@ class App < Sinatra::Base
 
 			redirect to '/user/profile' 				
 		else
-			flash[:notice] = 'Email is already taken'
+			flash[:errors] = @user.errors.full_messages
 			redirect to '/user/new_user'
 		end
 	end

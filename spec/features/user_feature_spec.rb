@@ -30,6 +30,15 @@ feature "Signing up" do
 		expect(page).to have_content("Email is already taken")
 	end
 
+	scenario "The user name must be unique" do
+		visit '/user/new_user'
+
+		expect{ fake_sign_up }.to change(User, :count).by(1)
+		expect{ fake_sign_up }.to change(User, :count).by(0)
+		
+		expect(page).to have_content("User name is already taken")
+	end
+
 
 
 
