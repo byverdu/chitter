@@ -28,9 +28,15 @@ class App < Sinatra::Base
 
 
 	get '/' do
-		@chiters = Chiter.all
 
-		erb :index
+		if session[:user_id]
+
+			redirect '/user/profile'
+
+		else	
+			@chiters = Chiter.all
+		  erb :index
+		end
 	end
 
   get '/user/new_user' do
@@ -65,16 +71,12 @@ class App < Sinatra::Base
 	end
 
 	get '/session/new_session' do
-
-
-			erb :"session/new_session"
-
+	
+		erb :"session/new_session"
 	end
 
 
 	post '/session/new_session' do
-
-		#redirect  '/user/profile'
 
 		user_name, password = params[:user_name], params[:password] 
 

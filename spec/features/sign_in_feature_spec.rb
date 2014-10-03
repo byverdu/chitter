@@ -20,28 +20,22 @@ feature "Signing In" do
 		expect(current_path).to eq('/user/profile')
 	end
 
-
-end
-
-feature "Signing Out" do
-
-	before(:each) do
-
-		User.create(email: "alby@domain.io", password: 's3cr3t',password_confirmation: "s3cr3t",
-		            name: "Albert Byverdu",  user_name: "byverdu")
-	end
-
 	scenario "the user can sign out" do
 
 		sign_in('byverdu','s3cr3t')
 
-		expect(current_path).to eq('/user/profile')
-
 		click_button 'Sign Out'
-
 		expect(current_path).to eq('/')
 	end
+
+	scenario "If the user don't signs out the session still alive" do
+  
+    sign_in('byverdu','s3cr3t')
+    visit '/'
+    expect(current_path).to eq('/user/profile')
+	end
 end
+
 
 def sign_in(user_name, password)
 

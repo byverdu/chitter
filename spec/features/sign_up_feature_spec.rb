@@ -24,8 +24,6 @@ feature "Signing up" do
 
 	scenario "The email must be unique" do
 
-		visit '/user/new_user'
-
 		expect{ fake_sign_up }.to change(User, :count).by(1)
 		expect{ fake_sign_up }.to change(User, :count).by(0)
 		
@@ -33,7 +31,6 @@ feature "Signing up" do
 	end
 
 	scenario "The user name must be unique" do
-		visit '/user/new_user'
 
 		expect{ fake_sign_up }.to change(User, :count).by(1)
 		expect{ fake_sign_up }.to change(User, :count).by(0)
