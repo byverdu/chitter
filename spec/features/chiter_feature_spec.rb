@@ -40,8 +40,36 @@ feature "Posting a chit" do
 
 	scenario "The user must be log in" do
 
-		expect(current_path).to eq('/user/profile')
+		fill_in 'content', with: 'Always testing'
 
-		
+		click_button 'Post a chit'
+
+		expect(page).to have_content('Always testing')
+		expect(page).to have_content(time)
+		expect(current_path).to eq('/user/profile')
 	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

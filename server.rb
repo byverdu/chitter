@@ -60,6 +60,7 @@ class App < Sinatra::Base
 	get '/user/profile' do
 
 		@user = User.first(id: session[:user_id])
+		@chiters = Chiter.all
 
 		erb :"user/profile"
 	end
@@ -96,9 +97,17 @@ class App < Sinatra::Base
 	end
 
 	post '/user/profile' do
-		session[:user_id] = nil
 
-		redirect '/'
+		if params[:content]
+
+			Chiter.create(content:params[:content],at_time:Time.now)
+
+			redirect '/user/profile'
+
+		else
+			session[:user_id] = nil
+			redirect '/'
+		end
 	end
 
 helpers do

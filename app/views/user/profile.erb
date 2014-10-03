@@ -13,5 +13,21 @@
 		<button type="submit">Sign Out</button>
 	</form>
 
+	<form action="/user/profile" method="post">
+		<textarea name="content" cols="30" rows="10"></textarea>
+		<button type="submit">Post a chit</button>
+	</form>
+
+<section class="chitters">
+	<% @chiters.each do | chit | %>
+	
+		<div class="chit">
+			<ul>
+				<li> <%= chit.content %> <span> <%= chit.at_time %> </span> </li>
+			</ul>
+		</div>
+	<% end %>	
+
+</section>
 	
 </section>
