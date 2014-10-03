@@ -7,13 +7,15 @@ feature "Signing In" do
 	end
 
 	scenario "A user can sign in" do
+		
 		visit '/'
 		click_link 'Sign In'
-
-		expect(current_path).to eq('/session/new_session')
+    
+    expect(current_path).to eq('/session/new_session')
 	end
 
 	scenario "After signing in is redirect to his profile page" do
+		
 		sign_in('byverdu','s3cr3t')
 
 		expect(page).to have_content('Welcome byverdu')
@@ -23,8 +25,8 @@ feature "Signing In" do
 	scenario "the user can sign out" do
 
 		sign_in('byverdu','s3cr3t')
-
-		click_button 'Sign Out'
+    click_button 'Sign Out'
+		
 		expect(current_path).to eq('/')
 	end
 
