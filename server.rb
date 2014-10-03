@@ -34,18 +34,18 @@ class App < Sinatra::Base
 	end
 
   get '/user/new_user' do
+		@user = User.new
   	erb :"user/new_user"
   end
-  
+
 
 	post '/user/new_user' do
-		@user = User.new
 
-		@user = User.create(email:            params[:email],
-                        password:         params[:password],
-		                    confirm_password: params[:confirm_password],
-		                    name:             params[:name],
-		                    user_name:        params[:user_name]
+		@user = User.create(email:                 params[:email],
+                        password:              params[:password],
+		                    password_confirmation: params[:password_confirmation],
+		                    name:                  params[:name],
+		                    user_name:             params[:user_name]
 		                   )
 		if @user.save
 			session[:user_id] = @user.id
@@ -62,6 +62,45 @@ class App < Sinatra::Base
 		@user = User.first(id: session[:user_id])
 
 		erb :"user/profile"
+	end
+
+	get '/session/new_session' do
+
+
+			erb :"session/new_session"
+
+	end
+
+
+	post '/session/new_session' do
+
+		#redirect  '/user/profile'
+
+		user_name, password = params[:user_name], params[:password] 
+
+		puts params[:user_name]
+		puts params[:password]
+
+		puts session[:user_id]
+
+    user = User.authenticate(user_name, password)
+
+    if user
+      
+      puts session[:user_id] = user.id
+      redirect  '/user/profile'
+    else
+    	erb :"session/new_session"
+    end
+
+	#	if user
+      
+     # @user = User.first(id: session[:user_id])
+      #erb :"user/profile"
+			#else
+    	#	 redirect to	"/session/new"		#	flash[:errors] = ["The user name or password is incorrect"]  
+#   	end
+
 	end
 
 
