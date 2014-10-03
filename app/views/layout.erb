@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Chitter</title>
+</head>
+<body>
+
+<div class="wrapper" style="width:900px;margin:0 auto">
+
+	<% if flash[:errors] && !flash[:errors].empty? %>
+	  Sorry, there were the following problems with the form.
+	  <ul id="errors">
+	    <% flash[:errors].each do |error| %>
+	      <li><%= error %></li>
+	    <% end %>
+	  </ul>
+	<% end %>
+
+	<%= yield %>
+
+</div>
+
+</body>
+</html>
