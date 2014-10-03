@@ -2,10 +2,12 @@ require "sinatra/base"
 require "data_mapper"
 require "rack-flash"
 
+require_relative 'data_mapper_setup'
+
 
 class App < Sinatra::Base
 
-	set :views, Proc.new{ File.join(File.dirname(__FILE__), './app/views') }
+	set :views, Proc.new{ File.join(File.dirname(__FILE__), 'views') }
 
 	use Rack::Flash
 	use Rack::MethodOverride
@@ -13,18 +15,7 @@ class App < Sinatra::Base
 	enable :sessions
 	set    :session_secret, 'my secret'
 
-	env = ENV["RACK_ENV"] || "development"
 
-	DataMapper.setup(:default, "postgres://localhost/chiter_#{env}")
-
-	require "./app/lib/user"
-	require "./app/lib/chiter"
-
-	DataMapper.finalize
-
-	DataMapper.auto_migrate! 
-
-	########################################
 
 
 	get '/' do
@@ -85,14 +76,6 @@ class App < Sinatra::Base
     	flash[:notice] = ['That user name do not exist','Wrong password']
     	erb :"session/new_session"
     end
-
-	#	if user
-      
-     # @user = User.first(id: session[:user_id])
-      #erb :"user/profile"
-			#else
-    	#	 redirect to	"/session/new"		#	flash[:errors] = ["The user name or password is incorrect"]  
-#   	end
 
 	end
 

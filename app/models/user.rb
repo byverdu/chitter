@@ -16,6 +16,8 @@ class User
 	validates_confirmation_of :password
 	validates_uniqueness_of   :email, :user_name
 
+	has n, :chiter, through: Resource
+
 	def password=(password)
 		@password = password
 	 	self.pswd_digest = BCrypt::Password.create(password)

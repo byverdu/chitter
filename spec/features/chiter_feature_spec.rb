@@ -1,5 +1,5 @@
 require 'timecop'
-require "./app/lib/user"
+require "./app/models/user"
 
 feature "On the home page" do
 
