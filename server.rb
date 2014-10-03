@@ -24,20 +24,22 @@ class App < Sinatra::Base
 
 	DataMapper.auto_migrate! 
 
+	########################################
+
+
 	get '/' do
-
-
-
 		@chiters = Chiter.all
 
 		erb :index
 	end
+
   get '/user/new_user' do
   	erb :"user/new_user"
   end
+  
 
 	post '/user/new_user' do
-	@user = User.new
+		@user = User.new
 
 		@user = User.create(email:            params[:email],
                         password:         params[:password],

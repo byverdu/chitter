@@ -39,21 +39,26 @@ feature "Signing up" do
 		expect(page).to have_content("User name is already taken")
 	end
 
-
-
-
-	def sign_up(email, password, confirm_password, name, user_name)
-		
+	xscenario "The password and password confirmation must match" do 
 		visit '/user/new_user'
 
-		fill_in :email            ,with: 'alby@example.com'
-		fill_in :password         ,with: 's3cr3t'
-		fill_in :confirm_password ,with: 's3cr3t'
-    fill_in :name             ,with: 'Albert'
-    fill_in :user_name        ,with: 'byverdu'
-
-    click_button 'Save Chiter'
+		#expect{ fake_sign_up }.to change(User, :count).by(1)
+		expect{ sign_up('alby@example.com', 's3cr3t', 's3cr3t0', 'Albert', 'byverdu') }#.to change(User, :count).by(0)
+		
+		expect(page).to have_content("Passwords don match")
 	end
+end
 
 
+def sign_up(email, password, confirm_password, name, user_name)
+	
+	visit '/user/new_user'
+
+	fill_in :email            ,with: 'alby@example.com'
+	fill_in :password         ,with: 's3cr3t'
+	fill_in :confirm_password ,with: 's3cr3t'
+  fill_in :name             ,with: 'Albert'
+  fill_in :user_name        ,with: 'byverdu'
+
+  click_button 'Save Chiter'
 end

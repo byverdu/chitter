@@ -4,11 +4,11 @@ describe User do
 
 		expect(User.count).to eq(0)
 
-		User.create(email:            'alby@example.com',
-								password:         's3cr3t',
-								confirm_password: 's3cr3t',
-								name:             'Albert',
-								user_name:        'byverdu'
+		User.create(email:       'alby@example.com',
+								password:    's3cr3t',
+								pswd_digest: 's3cr3t',
+								name:        'Albert',
+								user_name:   'byverdu'
 								)
 
 		expect(User.count).to eq(1)
@@ -16,8 +16,6 @@ describe User do
 		user = User.first
 
 		expect(user.email).to             eq('alby@example.com')
-		expect(user.password).to          eq('s3cr3t')
-		expect(user.confirm_password).to  eq('s3cr3t')
 		expect(user.name).to              eq('Albert')
 		expect(user.user_name).to         eq('byverdu')
 

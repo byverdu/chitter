@@ -17,6 +17,7 @@ feature "On the home page" do
 
 		expect(page).to have_content('Welcome to Chiter')
 		expect(page).to have_link( 'Sign Up' )
+		expect(page).to have_link( 'Sign In' )
 		expect(page).to have_content('Always testing')
 		expect(page).to have_content(time)
 	end
