@@ -51,7 +51,7 @@ feature "Signing Out" do
 		expect(current_path).to eq('/')
 	end
 
-	scenario "If the user don't signs out the session still alive" do
+	xscenario "If the user don't signs out the session still alive" do
   
     sign_in('byverdu','s3cr3t')
     visit '/'
