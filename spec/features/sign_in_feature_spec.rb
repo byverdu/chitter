@@ -26,6 +26,13 @@ feature "Signing In" do
 		expect(page).to     have_content('That user name do not exist')
 	end
 
+	scenario "Trying to sign in with a wrong password" do
+
+		sign_in('byverdu','s3cr3t0')
+		expect(page).not_to have_content('Welcome byverdu')
+		expect(page).to     have_content('Wrong password')
+	end
+
 end
 
 feature "Signing Out" do
