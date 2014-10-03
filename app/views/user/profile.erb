@@ -4,3 +4,9 @@
 <%= @user.password %>
 <%= @user.email %>
 
+<form action="/user/profile" method="post">
+	
+	<input type="hidden" method="_delete">
+	<button type="submit">Sign Out</button>
+</form>
+

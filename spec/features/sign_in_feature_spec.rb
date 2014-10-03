@@ -1,9 +1,9 @@
 feature "Signing In" do
 
-	before(:each) do
+  before(:each) do
 
 		User.create(email: "alby@domain.io", password: 's3cr3t',password_confirmation: "s3cr3t",
-		            name: "Albert Byverdu", user_name: "byverdu")
+		            name: "Albert Byverdu",  user_name: "byverdu")
 	end
 
 	scenario "A user can sign in" do
@@ -23,18 +23,25 @@ feature "Signing In" do
 
 end
 
-# feature "Signing Out" do
+feature "Signing Out" do
 
-# 	scenario "the user can sign out" do
-# 		#visit '/session/new_session'
+	before(:each) do
 
-# 		sig_in('byverdu','s3cr3t','s3cr3t')
+		User.create(email: "alby@domain.io", password: 's3cr3t',password_confirmation: "s3cr3t",
+		            name: "Albert Byverdu",  user_name: "byverdu")
+	end
 
-# 		click_button 'Sign Out'
+	scenario "the user can sign out" do
 
-# 		expect(current_path).to eq('/')
-# 	end
-# end
+		sign_in('byverdu','s3cr3t')
+
+		expect(current_path).to eq('/user/profile')
+
+		click_button 'Sign Out'
+
+		expect(current_path).to eq('/')
+	end
+end
 
 def sign_in(user_name, password)
 
@@ -45,3 +52,4 @@ def sign_in(user_name, password)
 
 	click_button 'Welcome'
 end
+

@@ -78,16 +78,11 @@ class App < Sinatra::Base
 
 		user_name, password = params[:user_name], params[:password] 
 
-		puts params[:user_name]
-		puts params[:password]
-
-		puts session[:user_id]
-
     user = User.authenticate(user_name, password)
 
     if user
       
-      puts session[:user_id] = user.id
+      session[:user_id] = user.id
       redirect  '/user/profile'
     else
     	erb :"session/new_session"
@@ -101,6 +96,12 @@ class App < Sinatra::Base
     	#	 redirect to	"/session/new"		#	flash[:errors] = ["The user name or password is incorrect"]  
 #   	end
 
+	end
+
+	post '/user/profile' do
+		session[:user_id] = nil
+
+		redirect '/'
 	end
 
 
