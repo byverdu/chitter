@@ -50,6 +50,14 @@ feature "Signing Out" do
 		
 		expect(current_path).to eq('/')
 	end
+
+	scenario "The user is redirect to his profile page if he doesn't log out" do
+		sign_in('byverdu','s3cr3t')
+
+		visit '/'
+
+		expect(current_path).to eq('/user/profile')
+	end
 end
 
 
