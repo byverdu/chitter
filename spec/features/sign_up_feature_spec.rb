@@ -50,6 +50,12 @@ feature "Errors during the sign up" do
 		expect(page).to have_content("User name is already taken")
 	end
 
+	scenario "The user name field can not be empty" do
+
+		expect{ sign_up('alby@example.com', 's3cr3t', 's3cr3t0', ' ', 'byverdu') }.to change(User, :count).by(0)
+		expect(page).to have_content("The user name field can not be empty")
+	end
+
 	scenario "The password and password confirmation must match" do 
 		
 		expect{ sign_up('alby@example.com', 's3cr3t', 's3cr3t0', 'Albert', 'byverdu') }.to change(User, :count).by(0)

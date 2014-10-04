@@ -8,7 +8,7 @@ class User
 	property :email    ,   String, unique: true, required: true, format: :email_address,
 	                               messages: { presence: "The email field can not be empty", format: "Bad email format" }
 	property :pswd_digest, Text
-	property :name     ,   String
+	property :name     ,   String, required: true, message: "The user name field can not be empty"
 	property :user_name,   String, unique: true
 
 	attr_reader   :password
