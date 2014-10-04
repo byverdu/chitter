@@ -16,7 +16,7 @@ feature "On the home page" do
 	scenario "The user visits the page for first time" do
 		visit '/'
 
-		expect(page).to have_content('Welcome to Chitter')
+		expect(page).to have_content('Chitter')
 		expect(page).to have_link( 'Sign Up' )
 		expect(page).to have_link( 'Sign In' )
 		expect(page).to have_content('Always testing')

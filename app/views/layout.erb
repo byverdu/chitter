@@ -4,11 +4,23 @@
 	<meta charset="UTF-8">
 	<title>Chitter</title>
 
-	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="/style.css">
 </head>
 <body>
 
+<header>
+	<div>
+		<nav class="nav_links">
+			<a href="/user/new_user">      Sign Up</a>
+			<a href="/session/new_session">Sign In</a>
+		</nav>
+
+		<h1>Chitter</h1>
+	</div>
+</header>
+
 <div class="wrapper">
+
 
 <section class="errors_box">
 	<% if flash[:errors] && !flash[:errors].empty? %>

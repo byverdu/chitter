@@ -2,13 +2,78 @@
 
 *{margin: 0; padding: 0}
 
+// Variables
+
+$width: 800px;
+
 // Fonts
 
 @import url(http://fonts.googleapis.com/css?family=Indie+Flower);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+// General styles
 
 *{font-family: 'Open Sans Condensed', sans-serif;}
 
 html { background: url(images/back.png) }
 
 h1{font-family: 'Indie Flower', cursive;}
+
+// Styles
+
+header{
+	width: 97%;
+	margin: 0 auto;
+	background: rgba(247,143,10,0.7);
+	padding: 20px;
+	box-shadow: 0px 2px 5px;
+
+	div{
+		width: 40%;
+		margin: 0 auto;
+
+		h1{
+			position: absolute;
+			top: -5px;
+			font-size: 60px;
+			letter-spacing: 10px;
+			color: #55ACEE;
+      text-shadow: 4px 1px 2px black;
+		}
+
+		.nav_links{
+
+			a{
+				text-decoration: none;
+				font-size: 20px;
+				border: 1px solid black;
+				padding: 4px 10px;
+				border-radius: 5px;
+				color: #951102;
+
+				&:first-child{
+					margin-left: 50%;
+				}
+
+				&:last-child{
+					float: right;
+					position: relative;
+					top: -5px;
+					right: 30px;
+				}
+
+				&:hover{
+					background: #55ACEE;
+					color: white;
+					border-color: white;
+				}
+			}
+		}
+	}
+}
+
+.wrapper{
+
+	width: 40%;
+	margin: 0 auto;
+}
