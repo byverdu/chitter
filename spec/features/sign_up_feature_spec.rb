@@ -52,6 +52,12 @@ feature "Errors during the sign up" do
 
 	scenario "The user name field can not be empty" do
 
+		expect{ sign_up('alby@example.com', 's3cr3t', 's3cr3t0', 'Albert', ' ') }.to change(User, :count).by(0)
+		expect(page).to have_content("The name field can not be empty")
+	end
+
+	scenario "The name field can not be empty" do
+
 		expect{ sign_up('alby@example.com', 's3cr3t', 's3cr3t0', ' ', 'byverdu') }.to change(User, :count).by(0)
 		expect(page).to have_content("The user name field can not be empty")
 	end
