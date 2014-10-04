@@ -8,34 +8,13 @@
 </head>
 <body>
 
-<header>
-	<div>
-		<nav class="nav_links">
-			<a href="/user/new_user">      Sign Up</a>
-			<a href="/session/new_session">Sign In</a>
-		</nav>
-
-		<h1>Chitter</h1>
-	</div>
-</header>
+	<%= partial :"partials/header" %>
+	
 
 <div class="wrapper">
 
 
-<section class="errors_box">
-	<% if flash[:errors] && !flash[:errors].empty? %>
-	  Sorry, there were the following problems with the form.
-	  <ul class="messages errors">
-	    <% flash[:errors].each do |error| %>
-	      <li><%= error %></li>
-	    <% end %>
-	  </ul>
-	<% end %>
-
-	<% if flash[:notice]  %>
-		<span class="messages"> <%= flash[:notice] %> </span>
-	<% end %>
-</section>
+	<%= partial :"partials/errors" %>
 
 	<%= yield %>
 
