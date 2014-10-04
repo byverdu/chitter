@@ -1,17 +1,17 @@
-
-
-<h1>Welcome to Chitter</h1>
-
-<a href="/user/new_user">Sign Up</a>
-<a href="/session/new_session">Sign In</a>
+<header>
+	<nav class="nav_links">
+		<a href="/user/new_user">      Sign Up</a>
+		<a href="/session/new_session">Sign In</a>
+	</nav>
+</header>
 
 <section class="chitters">
 	<% @chitters.each do | chitt | %>
 	
 		<div class="chitt">
 			<ul>
-				<li> <%= chitt.name %>    <span> <%= chitt.user_name %> </span> </li>
-				<li> <%= chitt.content %> <span> <%= format_time(chitt.at_time)%> </span> </li>
+				<li class="info_user"> <%= chitt.name %>    <span> <%= chitt.user_name %> </span> </li>
+				<li class="info_chit"> <%= chitt.content %> <span> <%= format_time(chitt.at_time)%> </span> </li>
 			</ul>
 		</div>
 	<% end %>	

@@ -1,34 +1,29 @@
 <section class="profile">
+	<nav class="nav_profile">
+		<h1>Welcome <%= @user.user_name %></h1>
+			
+		<form action="/user/profile" method="post">
+				
+			<input type="hidden" method="_delete">
+			<button type="submit">Sign Out</button>
+		</form>
+	</nav>
 
+		<form action="/user/profile" method="post" class="post_chitt">
+			<textarea name="content" cols="30" rows="10"></textarea>
+			<button   type="submit">Post a chitt</button>
+		</form>
 
-
-	<h1>Welcome <%= @user.user_name %></h1>
-	
-	<%= @user.name %>
-	<%= @user.email %>
-
-	<form action="/user/profile" method="post">
+	<section class="chitters">
+		<% @chitters.each do | chitt | %>
 		
-		<input type="hidden" method="_delete">
-		<button type="submit">Sign Out</button>
-	</form>
+			<div class="chitt">
+				<ul>
+					<li> <%= chitt.name %> <span> <%= chitt.user_name %> </span> </li>
+					<li> <%= chitt.content %> <span> <%= format_time(chitt.at_time) %> </span> </li>
+				</ul>
+			</div>
+		<% end %>	
 
-	<form action="/user/profile" method="post">
-		<textarea name="content" cols="30" rows="10"></textarea>
-		<button type="submit">Post a chitt</button>
-	</form>
-
-<section class="chitters">
-	<% @chitters.each do | chitt | %>
-	
-		<div class="chit">
-			<ul>
-				<li> <%= chitt.name %> <span> <%= chitt.user_name %> </span> </li>
-				<li> <%= chitt.content %> <span> <%= format_time(chitt.at_time) %> </span> </li>
-			</ul>
-		</div>
-	<% end %>	
-
-</section>
-	
+	</section>
 </section>

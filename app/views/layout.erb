@@ -8,11 +8,12 @@
 </head>
 <body>
 
-<div class="wrapper" style="width:900px;margin:0 auto">
+<div class="wrapper">
 
+<section class="errors_box">
 	<% if flash[:errors] && !flash[:errors].empty? %>
 	  Sorry, there were the following problems with the form.
-	  <ul id="errors">
+	  <ul class="messages errors">
 	    <% flash[:errors].each do |error| %>
 	      <li><%= error %></li>
 	    <% end %>
@@ -20,8 +21,9 @@
 	<% end %>
 
 	<% if flash[:notice]  %>
-		<span> <%= flash[:notice] %> </span>
+		<span class="messages"> <%= flash[:notice] %> </span>
 	<% end %>
+</section>
 
 	<%= yield %>
 

@@ -1,1 +1,14 @@
-*{color: red;font-size: 55px}
+/* CSS styles */
+
+*{margin: 0; padding: 0}
+
+// Fonts
+
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+*{font-family: 'Open Sans Condensed', sans-serif;}
+
+html { background: url(images/back.png) }
+
+h1{font-family: 'Indie Flower', cursive;}
