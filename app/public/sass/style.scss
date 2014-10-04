@@ -104,28 +104,29 @@ header{
 			border: 2px solid white;
 			background: #7FD4BC;
 			color: white;
-			padding: 5px;
+			padding: 25px;
 			font-size: 22px;
 			letter-spacing: 3px;
 			border-radius: 40px;
 			margin: 10% 0;
 
 			img{
+				float:left;
 				width: 50px;
 				border: 2px solid;
 				padding: 10px;
 				border-radius: 50px;
 				box-shadow: -1px -1px 2px black;
 				position: relative;
-				right: 45px;
-				top: 15px;
+				top: -10px;
+				right: 10px;
 			}
 
 			ul{
-				float: right;
-				position: relative;
-				top: -80px;
-				width: 450px;
+				// float: right;
+				// position: relative;
+				// top: -80px;
+				// width: 450px;
 
 				li{
 					list-style: none;
@@ -135,31 +136,21 @@ header{
 				.info_user{
 					color: #F78F0A;
 					text-shadow: 1px 1px white;
-					font-size: 30px;
+					font-size: 25px;
 					position: relative;
-					top: -15px;
+					top: -65px;
+					border: 3px solid white;
+					width: 480px;
+					margin: 0 auto;
+					border-radius: 6px;
+					background: #7FD4BC;
 				}
 
-				.info_chit span{
+				.info_chit {
 					position: relative;
-					top: 37px;
+					top: -60px;
 				}
 			}
-		}
-
-		.chitt:nth-child(even){
-
-			&:before{ @include arrow_chitt_before(); left: 30px }
-
-			&:after{ @include arrow_chitt_after() }
-		}
-
-		.chitt:nth-child(odd){
-			
-			&:before{ @include arrow_chitt_before(); left: 440px }
-
-			&:after{ @include arrow_chitt_after(); left: 443px }
-
 		}
 	}
 }

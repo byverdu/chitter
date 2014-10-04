@@ -3,8 +3,9 @@
 		<div class="chitt">
 			<img src="/images/chitter.gif" alt="chitter bird">
 			<ul>
-				<li class="info_user"> <%= chitt.name %>  known as  <span> <%= chitt.user_name %> </span> </li>
-				<li class="info_chit"> <%= chitt.content %> <span>Chitted at <%= format_time(chitt.at_time)%> </span> </li>
+				<li class="info_user"><%= chitt.name %> known as<span> <%= chitt.user_name %> chitt</span> </li>
+				<li class="info_chit"> <%= chitt.content %></li>
+				<li> Chitted at <%= format_time(chitt.at_time)%></li>
 			</ul>
 		</div>
 	<% end %>	

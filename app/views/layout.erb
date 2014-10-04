@@ -8,17 +8,15 @@
 </head>
 <body>
 
-	<%= partial :"partials/header" %>
-	
+		<%= partial :"partials/header" %>
+		
+	<div class="wrapper">
 
-<div class="wrapper">
+		<%= partial :"partials/errors" %>
 
+		<%= yield %>
 
-	<%= partial :"partials/errors" %>
-
-	<%= yield %>
-
-</div>
+	</div>
 
 </body>
 </html>
