@@ -5,7 +5,8 @@ class User
 	include DataMapper::Resource
 
 	property :id       ,   Serial
-	property :email    ,   String, unique: true, required: true, messages: { presence: "The email field can not be empty" }
+	property :email    ,   String, unique: true, required: true, format: :email_address,
+	                               messages: { presence: "The email field can not be empty", format: "Bad email format" }
 	property :pswd_digest, Text
 	property :name     ,   String
 	property :user_name,   String, unique: true
