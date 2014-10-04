@@ -28,15 +28,15 @@ header {
       top: -5px;
       font-size: 60px;
       letter-spacing: 10px;
-      color: #55ACEE;
-      text-shadow: 4px 1px 2px black; }
+      color: #7FD4BC;
+      text-shadow: 1px 1px 0px white; }
     header div .nav_links a {
       text-decoration: none;
       font-size: 20px;
-      border: 1px solid black;
+      border: 2px solid #7FD4BC;
+      color: white;
       padding: 4px 10px;
-      border-radius: 5px;
-      color: #951102; }
+      border-radius: 5px; }
       header div .nav_links a:first-child {
         margin-left: 50%; }
       header div .nav_links a:last-child {
@@ -45,12 +45,85 @@ header {
         top: -5px;
         right: 30px; }
       header div .nav_links a:hover {
-        background: #55ACEE;
+        background: #7FD4BC;
         color: white;
         border-color: white; }
 
 .wrapper {
   width: 40%;
   margin: 0 auto; }
+  .wrapper .chitters {
+    margin-top: 5%; }
+    .wrapper .chitters .chitt {
+      border: 2px solid white;
+      background: #7FD4BC;
+      color: white;
+      padding: 5px;
+      font-size: 22px;
+      letter-spacing: 3px;
+      border-radius: 40px;
+      margin: 10% 0; }
+      .wrapper .chitters .chitt img {
+        width: 50px;
+        border: 2px solid;
+        padding: 10px;
+        border-radius: 50px;
+        box-shadow: -1px -1px 2px black;
+        position: relative;
+        right: 45px;
+        top: 15px; }
+      .wrapper .chitters .chitt ul {
+        float: right;
+        position: relative;
+        top: -80px;
+        width: 450px; }
+        .wrapper .chitters .chitt ul li {
+          list-style: none; }
+        .wrapper .chitters .chitt ul .info_user {
+          color: #F78F0A;
+          text-shadow: 1px 1px white;
+          font-size: 30px;
+          position: relative;
+          top: -15px; }
+        .wrapper .chitters .chitt ul .info_chit span {
+          position: relative;
+          top: 37px; }
+    .wrapper .chitters .chitt:nth-child(even):before {
+      content: " ";
+      position: relative;
+      top: 97px;
+      width: 0;
+      height: 0;
+      border: 30px solid;
+      border-color: white transparent transparent;
+      left: 30px; }
+    .wrapper .chitters .chitt:nth-child(even):after {
+      content: " ";
+      position: relative;
+      top: 62px;
+      left: 33px;
+      height: 0;
+      width: 0;
+      border: 27px solid;
+      border-color: #7FD4BC transparent transparent; }
+    .wrapper .chitters .chitt:nth-child(odd):before {
+      content: " ";
+      position: relative;
+      top: 97px;
+      width: 0;
+      height: 0;
+      border: 30px solid;
+      border-color: white transparent transparent;
+      left: 440px; }
+    .wrapper .chitters .chitt:nth-child(odd):after {
+      content: " ";
+      position: relative;
+      top: 62px;
+      left: 33px;
+      height: 0;
+      width: 0;
+      border: 27px solid;
+      border-color: #7FD4BC transparent transparent;
+      left: 443px; }
 
 /*# sourceMappingURL=style.css.map */

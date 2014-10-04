@@ -2,9 +2,29 @@
 
 *{margin: 0; padding: 0}
 
-// Variables
+// Mixins
 
-$width: 800px;
+@mixin arrow_chitt_before(){
+	content: " ";
+	position: relative;
+	top: 97px;
+	width: 0;
+	height: 0;
+	border: 30px solid;
+	border-color: white transparent transparent;
+}
+
+@mixin arrow_chitt_after(){
+	content: " ";
+	position: relative;
+	top: 62px;
+	left: 33px;
+	height: 0;
+	width: 0;
+	border: 27px solid;
+	border-color: #7FD4BC transparent transparent;
+}
+
 
 // Fonts
 
@@ -37,8 +57,8 @@ header{
 			top: -5px;
 			font-size: 60px;
 			letter-spacing: 10px;
-			color: #55ACEE;
-      text-shadow: 4px 1px 2px black;
+			color: #7FD4BC;
+      text-shadow: 1px 1px 0px white;
 		}
 
 		.nav_links{
@@ -46,10 +66,10 @@ header{
 			a{
 				text-decoration: none;
 				font-size: 20px;
-				border: 1px solid black;
+				border: 2px solid #7FD4BC;
+				color: white;
 				padding: 4px 10px;
 				border-radius: 5px;
-				color: #951102;
 
 				&:first-child{
 					margin-left: 50%;
@@ -63,7 +83,7 @@ header{
 				}
 
 				&:hover{
-					background: #55ACEE;
+					background: #7FD4BC;
 					color: white;
 					border-color: white;
 				}
@@ -76,4 +96,90 @@ header{
 
 	width: 40%;
 	margin: 0 auto;
+
+	.chitters{
+		margin-top: 5%;
+
+		.chitt{
+			border: 2px solid white;
+			background: #7FD4BC;
+			color: white;
+			padding: 5px;
+			font-size: 22px;
+			letter-spacing: 3px;
+			border-radius: 40px;
+			margin: 10% 0;
+
+			img{
+				width: 50px;
+				border: 2px solid;
+				padding: 10px;
+				border-radius: 50px;
+				box-shadow: -1px -1px 2px black;
+				position: relative;
+				right: 45px;
+				top: 15px;
+			}
+
+			ul{
+				float: right;
+				position: relative;
+				top: -80px;
+				width: 450px;
+
+				li{
+					list-style: none;
+				}
+
+
+				.info_user{
+					color: #F78F0A;
+					text-shadow: 1px 1px white;
+					font-size: 30px;
+					position: relative;
+					top: -15px;
+				}
+
+				.info_chit span{
+					position: relative;
+					top: 37px;
+				}
+			}
+		}
+
+		.chitt:nth-child(even){
+
+			&:before{ @include arrow_chitt_before(); left: 30px }
+
+			&:after{ @include arrow_chitt_after() }
+		}
+
+		.chitt:nth-child(odd){
+			
+			&:before{ @include arrow_chitt_before(); left: 440px }
+
+			&:after{ @include arrow_chitt_after(); left: 443px }
+
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
