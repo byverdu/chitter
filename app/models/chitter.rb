@@ -1,4 +1,4 @@
-class Chiter
+class Chitter
 
 	include DataMapper::Resource
 

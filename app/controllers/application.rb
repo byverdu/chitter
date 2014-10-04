@@ -2,7 +2,7 @@ class App < Sinatra::Base
 
 	get '/' do
 	
-		@chiters = Chiter.all
+		@chitters = Chitter.all
 		erb :index
 	end
 

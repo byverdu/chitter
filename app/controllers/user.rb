@@ -27,7 +27,7 @@ class App < Sinatra::Base
 	get '/user/profile' do
 
 		@user = User.first(id: session[:user_id])
-		@chiters = Chiter.all
+		@chitters = Chitter.all
 
 		erb :"user/profile"
 	end
@@ -36,7 +36,11 @@ class App < Sinatra::Base
 
 		if params[:content]
 
-			Chiter.create(content:params[:content],at_time:Time.now)
+			user = User.first(id: session[:user_id])
+
+			Chitter.create(content:params[:content],at_time:Time.now,
+				            name:user.name, user_name: user.user_name)
+
 
 			redirect '/user/profile'
 

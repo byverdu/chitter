@@ -1,7 +1,7 @@
 require 'timecop'
-require "./app/lib/user"
+require "./app/models/user"
 
-describe Chiter do
+describe Chitter do
 
 	it "has all this properties" do
 
@@ -12,14 +12,14 @@ describe Chiter do
 
 		Timecop.freeze(time)
 		
-		expect(Chiter.count).to eq(0)	
+		expect(Chitter.count).to eq(0)	
 
-		Chiter.create(content: 'Always testing', at_time: time,
+		Chitter.create(content: 'Always testing', at_time: time,
 			             name: user.name, user_name: user.user_name)
 
-		expect(Chiter.count).to eq(1)
+		expect(Chitter.count).to eq(1)
 
-		chit = Chiter.first
+		chit = Chitter.first
 
 		expect(chit.content).to   eq('Always testing')
 		expect(chit.at_time).to   eq(time)

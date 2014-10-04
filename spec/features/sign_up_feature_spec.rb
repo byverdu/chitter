@@ -57,5 +57,5 @@ def sign_up(email                 = 'alby@example.com',
   fill_in :name                  ,with: name
   fill_in :user_name             ,with: user_name
 
-  click_button 'Save Chiter'
+  click_button 'Save Chitter'
 end

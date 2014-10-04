@@ -1,16 +1,17 @@
 
 
-<h1>Welcome to Chiter</h1>
+<h1>Welcome to Chitter</h1>
 
 <a href="/user/new_user">Sign Up</a>
 <a href="/session/new_session">Sign In</a>
 
 <section class="chitters">
-	<% @chiters.each do | chit | %>
+	<% @chitters.each do | chitt | %>
 	
-		<div class="chit">
+		<div class="chitt">
 			<ul>
-				<li> <%= chit.content %> <span> <%= chit.at_time %> </span> </li>
+				<li> <%= chitt.name %>    <span> <%= chitt.user_name %> </span> </li>
+				<li> <%= chitt.content %> <span> <%= chitt.at_time   %> </span> </li>
 			</ul>
 		</div>
 	<% end %>	

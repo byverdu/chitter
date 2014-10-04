@@ -16,7 +16,7 @@ class User
 	validates_confirmation_of :password
 	validates_uniqueness_of   :email, :user_name
 
-	has n, :chiter, through: Resource
+	has n, :chitter, through: Resource
 
 	def password=(password)
 		@password = password
