@@ -18,7 +18,9 @@ feature "Signing up" do
 		sign_up
 		expect(current_path).to eq('/user/profile')
 	end
+end
 
+feature "Errors during the sign up" do
 	scenario "The email must be unique" do
 
 		expect{ sign_up }.to change(User, :count).by(1)
@@ -40,6 +42,13 @@ feature "Signing up" do
 		expect{ sign_up('alby@example.com', 's3cr3t', 's3cr3t0', 'Albert', 'byverdu') }.to change(User, :count).by(0)
 		expect(page).to have_content("Password does not match the confirmation")
 	end
+
+	scenario "The email field can not be empty" do
+
+		expect{ sign_up(' ','s3cr3t','s3cr3t','Albert','byverdu') }.to change(User, :count).by(0)
+		expect(page).to have_content("The email field can not be empty")
+	end
+
 end
 
 
@@ -59,3 +68,4 @@ def sign_up(email                 = 'alby@example.com',
 
   click_button 'Save Chitter'
 end
+

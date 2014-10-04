@@ -17,7 +17,7 @@ class App < Sinatra::Base
       session[:user_id] = user.id
       redirect  '/user/profile'
     else
-    	flash[:notice] = ['That user name do not exist','Wrong password']
+    	flash[:notice] = ['There is a problem with your email or password']
     	erb :"session/new_session"
     end
 	end
