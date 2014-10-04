@@ -38,7 +38,7 @@ class App < Sinatra::Base
 
 			user = User.first(id: session[:user_id])
 
-			Chitter.create(content:params[:content],at_time:Time.now,
+			Chitter.create(content:params[:content],at_time: time_at(Time.now),
 				            name:user.name, user_name: user.user_name)
 
 
@@ -48,6 +48,10 @@ class App < Sinatra::Base
 			session[:user_id] = nil
 			redirect '/'
 		end
+	end
+
+	def time_at(time)
+		time.strftime("%d/%b/%Y at %H:%M")
 	end
 
 

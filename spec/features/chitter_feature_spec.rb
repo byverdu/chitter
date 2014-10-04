@@ -20,7 +20,7 @@ feature "On the home page" do
 		expect(page).to have_link( 'Sign Up' )
 		expect(page).to have_link( 'Sign In' )
 		expect(page).to have_content('Always testing')
-		expect(page).to have_content(time)
+		expect(page).to have_content(time.strftime("%d/%b/%Y at %H:%M"))
 	end
 end
 
@@ -46,7 +46,7 @@ feature "Posting a chit" do
 		click_button 'Post a chit'
 
 		expect(page).to have_content('Always testing')
-		expect(page).to have_content(time)
+		expect(page).to have_content(time.strftime("%d/%b/%Y at %H:%M"))
 		expect(page).to have_content('Albert')
 		expect(page).to have_content('byverdu')
 		expect(current_path).to eq('/user/profile')

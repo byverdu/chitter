@@ -32,7 +32,7 @@ feature "Errors during the sign up" do
 
 	scenario "The email field can not be empty" do
 
-		expect{ sign_up(' ','s3cr3t','s3cr3t','Albert','byverdu') }.to change(User, :count).by(0)
+		expect{ sign_up('','s3cr3t','s3cr3t','Albert','byverdu') }.to change(User, :count).by(0)
 		expect(page).to have_content("The email field can not be empty")
 	end
 
@@ -52,26 +52,22 @@ feature "Errors during the sign up" do
 
 	scenario "The user name field can not be empty" do
 
-		expect{ sign_up('alby@example.com', 's3cr3t', 's3cr3t', 'Albert', ' ') }.to change(User, :count).by(0)
-		expect(page).to have_content("The name field can not be empty")
+		expect{ sign_up('alby@example.com', 's3cr3t', 's3cr3t', 'Albert', '') }.to change(User, :count).by(0)
+		expect(page).to have_content("The user name field can not be empty")
 	end
 
 	scenario "The name field can not be empty" do
 
-		expect{ sign_up('alby@example.com', 's3cr3t', 's3cr3t', ' ', 'byverdu') }.to change(User, :count).by(0)
-		expect(page).to have_content("The user name field can not be empty")
+		expect{ sign_up('alby@example.com', 's3cr3t', 's3cr3t', '', 'byverdu') }.to change(User, :count).by(0)
+		expect(page).to have_content("The name field can not be empty")
 	end
 
-	scenario "The password field can not be empty" do
 
-		expect{ sign_up('alby@example.com','Albert', 'byverdu') }.to change(User, :count).by(0)
-		expect(page).to have_content("There is some problems with your password")
-	end
 	
 	scenario "The password and password confirmation must match" do 
 		
 		expect{ sign_up('alby@example.com', 's3cr3t', 's3cr3t0', 'Albert', 'byverdu') }.to change(User, :count).by(0)
-		expect(page).to have_content("There is some problems with your password")
+		expect(page).to have_content("Password does not match the confirmation")
 	end
 
 
