@@ -14,16 +14,6 @@
 			<button   type="submit">Post a chitt</button>
 		</form>
 
-	<section class="chitters">
-		<% @chitters.each do | chitt | %>
-		
-			<div class="chitt">
-				<ul>
-					<li> <%= chitt.name %> <span> <%= chitt.user_name %> </span> </li>
-					<li> <%= chitt.content %> <span> <%= format_time(chitt.at_time) %> </span> </li>
-				</ul>
-			</div>
-		<% end %>	
+	<%= partial :"/partials/show_chitt" %>
 
-	</section>
 </section>

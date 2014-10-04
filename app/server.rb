@@ -1,6 +1,7 @@
-require "sinatra/base"
 require "data_mapper"
 require "rack-flash"
+require "sinatra/base"
+require "sinatra/partial"
 
 require_relative 'data_mapper_setup'
 require_relative 'helpers'
@@ -17,6 +18,11 @@ class App < Sinatra::Base
 	set :views,         Proc.new{ File.join(File.dirname(__FILE__), 'views') }
 	set :public_folder, Proc.new{ File.join(File.dirname(__FILE__), 'public') }
 
+	configure do
+    register Sinatra::Partial
+    set :partial_template_engine, :erb
+  end
+  
 	use Rack::Flash
 	use Rack::MethodOverride
 
