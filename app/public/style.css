@@ -85,7 +85,8 @@ header {
         width: 480px;
         margin: 0 auto;
         border-radius: 6px;
-        background: #7FD4BC; }
+        background: #7FD4BC;
+        text-align: center; }
       .wrapper .chitters .chitt ul .info_chit {
         position: relative;
         top: -60px; }
@@ -150,9 +151,31 @@ header {
     position: relative;
     top: -30px; }
 .profile textarea {
-  border: 1px solid #7FD4BC; }
+  border: 1px solid #7FD4BC;
+  font-size: 18px; }
   .profile textarea:focus {
     outline: none !important;
     box-shadow: 0 0 10px #7FD4BC; }
+
+.errors_box {
+  width: 430px;
+  margin: 0 auto; }
+  .errors_box p {
+    margin-top: 25px;
+    font-size: 20px;
+    color: #951102; }
+  .errors_box ul {
+    list-style: none; }
+  .errors_box .messages li {
+    border: 3px solid white;
+    width: 400px;
+    font-size: 20px;
+    text-align: center;
+    background: #951102;
+    color: white;
+    padding: 2px;
+    border-radius: 25px;
+    box-shadow: 1px 1px 14px black;
+    margin: 5% 0; }
 
 /*# sourceMappingURL=style.css.map */

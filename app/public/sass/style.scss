@@ -137,6 +137,7 @@ header{
 					margin: 0 auto;
 					border-radius: 6px;
 					background: #7FD4BC;
+					text-align: center;
 				}
 
 				.info_chit {
@@ -205,6 +206,7 @@ header{
 	textarea{
 
 				border:1px solid #7FD4BC;
+				font-size: 18px;
 		&:focus{
 				outline: none !important; 
 				box-shadow:0 0 10px #7FD4BC;
@@ -213,7 +215,31 @@ header{
 
 }
 
+.errors_box{
+	width: 430px;
+  margin: 0 auto;
 
+  p{ 
+  	margin-top: 25px; 
+  	font-size: 20px;
+  	color: #951102;
+  }
+
+  ul{ list-style: none; }
+
+  .messages li {
+  	border: 3px solid white;
+		width: 400px;
+		font-size: 20px;
+		text-align: center;
+		background: #951102;
+		color: white;
+		padding: 2px;
+		border-radius: 25px;
+		box-shadow: 1px 1px 14px black;
+		margin: 5% 0;
+  }
+}
 
 
 

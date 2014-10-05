@@ -1,6 +1,6 @@
 <section class="errors_box">
 	<% if flash[:errors] && !flash[:errors].empty? %>
-	  Sorry, there were the following problems with the form.
+	  <p>Sorry, there were the following problems with the form.</p>
 	  <ul class="messages errors">
 	    <% flash[:errors].each do |error| %>
 	      <li><%= error %></li>
@@ -9,6 +9,10 @@
 	<% end %>
 
 	<% if flash[:notice]  %>
-		<span class="messages"> <%= flash[:notice] %> </span>
+		<ul class="messages">
+			<% flash[:notice].each do | notice | %>
+		    <li> <%= notice %> </li>
+			<% end %>
+		</ul>
 	<% end %>
 </section>
