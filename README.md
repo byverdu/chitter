@@ -59,7 +59,7 @@ Work on the css to make it look good (we all like beautiful things).
 
 #### How to run tests
 
-```shell
+```ruby
 
 # Clone or download this repository
 
@@ -84,7 +84,7 @@ $ psql
 
 $ rake auto_upgrade
 
-#Run RSpec:
+# Run RSpec:
 
 $ rspec
 
