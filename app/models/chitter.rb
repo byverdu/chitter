@@ -1,3 +1,5 @@
+require "data_mapper"
+
 class Chitter
 
 	include DataMapper::Resource
