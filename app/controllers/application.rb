@@ -2,14 +2,14 @@ class App < Sinatra::Base
 
 	get '/' do
 
-		if session[:user_id]
+		#if session[:user_id]
 
-			redirect '/user/profile'
+		#	redirect '/user/profile'
 
-		else
+		#else
 	    @chitters = Chitter.all
 			erb :index
-		end
+		#end
 	end
 
 end
