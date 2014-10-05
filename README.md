@@ -53,8 +53,6 @@ Work on the css to make it look good (we all like beautiful things).
 
 1. Sass
 
-1. JQuery
-
 1. CSS and HTML
 
 #### How to run tests
