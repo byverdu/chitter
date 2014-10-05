@@ -8,3 +8,5 @@ require "data_mapper"
 	require_relative "./models/chitter"
 
 	DataMapper.finalize
+
+	DataMapper.auto_upgrade!
