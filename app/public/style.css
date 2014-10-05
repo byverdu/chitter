@@ -21,7 +21,7 @@ header {
   padding: 20px;
   box-shadow: 0px 2px 5px; }
   header div {
-    width: 40%;
+    width: 750px;
     margin: 0 auto; }
     header div h1 {
       position: absolute;
@@ -50,7 +50,7 @@ header {
         border-color: white; }
 
 .wrapper {
-  width: 40%;
+  width: 750px;
   margin: 0 auto; }
   .wrapper .chitters {
     margin-top: 5%; }
@@ -89,5 +89,70 @@ header {
       .wrapper .chitters .chitt ul .info_chit {
         position: relative;
         top: -60px; }
+
+.new_user,
+.new_session,
+.profile {
+  margin: 50px 0; }
+  .new_user form,
+  .new_session form,
+  .profile form {
+    width: 500px;
+    margin: 0 auto; }
+    .new_user form input,
+    .new_session form input,
+    .profile form input {
+      margin: 15px auto;
+      height: 30px;
+      width: 200px;
+      font-size: 20px;
+      padding: 3px; }
+      .new_user form input:focus,
+      .new_session form input:focus,
+      .profile form input:focus {
+        outline: none !important;
+        border: 1px solid #7FD4BC;
+        box-shadow: 0 0 10px #7FD4BC;
+        color: #7FD4BC; }
+    .new_user form button,
+    .new_session form button,
+    .profile form button {
+      font-size: 20px;
+      border: 2px solid #7FD4BC;
+      color: #7FD4BC;
+      padding: 4px 10px;
+      text-shadow: 0px 1px black;
+      border-radius: 5px;
+      background: whitesmoke;
+      font-weight: 400;
+      margin-left: 50px;
+      cursor: pointer; }
+      .new_user form button:hover,
+      .new_session form button:hover,
+      .profile form button:hover {
+        background: #7FD4BC;
+        color: white;
+        border-color: white; }
+
+.new_session form button {
+  margin-left: 170px; }
+
+.profile .nav_profile {
+  position: relative;
+  top: -10px; }
+  .profile .nav_profile h1 {
+    color: #7FD4BC;
+    font-size: 30px;
+    text-shadow: 1px 1px black;
+    letter-spacing: 4px; }
+  .profile .nav_profile button {
+    float: right;
+    position: relative;
+    top: -30px; }
+.profile textarea {
+  border: 1px solid #7FD4BC; }
+  .profile textarea:focus {
+    outline: none !important;
+    box-shadow: 0 0 10px #7FD4BC; }
 
 /*# sourceMappingURL=style.css.map */
