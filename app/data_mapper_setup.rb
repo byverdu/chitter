@@ -9,4 +9,4 @@ require "data_mapper"
 
 	DataMapper.finalize
 
-	DataMapper.auto_upgrade!
+	DataMapper.auto_upgrade! # Add this line, the thing is why works in bookmark without this line
