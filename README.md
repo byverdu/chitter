@@ -57,7 +57,38 @@ Work on the css to make it look good (we all like beautiful things).
 
 1. CSS and HTML
 
+#### How to run tests
 
+```shell
+
+# Clone or download this repository
+
+$ git clone git@github.com:byverdu/chitter.git
+
+# Change into the directory:
+
+$ cd chitter
+
+# Install all dependencies:
+
+$ bundle install
+
+# Create a local database:
+
+$ psql
+  =# CREATE DATABASE chitter_test;
+
+  =# \q
+
+# Run the auto-upgrade task:
+
+$ rake auto_upgrade
+
+#Run RSpec:
+
+$ rspec
+
+```
 
 
 
