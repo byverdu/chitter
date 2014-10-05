@@ -2,6 +2,8 @@
 
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
+You can send some chitts by following this [link](http://chitter-byver.herokuapp.com/)
+
 ###Features:
 1. In order to use chitter as a maker I want to sign up to the service
 
@@ -41,4 +43,28 @@ Or / and:
 
 Work on the css to make it look good (we all like beautiful things).
 
-Technologies used: Ruby, RSpec, Capybara, Sass, JQuery, CSS and HTML
+#### Technologies used: 
+
+1. Ruby 
+
+2. RSpec 
+
+3. Capybara
+
+1. Sass
+
+1. JQuery
+
+1. CSS and HTML
+
+
+
+
+
+
+
+
+
+
+
+
