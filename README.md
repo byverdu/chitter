@@ -1,5 +1,6 @@
 #Chitter
 
+
 We are going to write a little Twitter clone that will allow the users to post messages to a public stream.
 
 You can send some chitts by following this [link](http://chitter-byver.herokuapp.com/)
